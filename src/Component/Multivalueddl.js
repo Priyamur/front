@@ -22,6 +22,7 @@ const MultiSelectDropdown = () => {
       options={options}
       className="basic-multi-select"
       classNamePrefix="select"
+      placeholder="Choose your stream"
       onChange={handleChange}
       value={selectedOptions}
     />

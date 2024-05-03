@@ -141,8 +141,8 @@ export default function Register() {
                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                     <h3>Welcome to Relevantz </h3>
                     <h4>Learning Management System</h4>
-                    <h6>gain your knowledge with Relevantz</h6>
-                    <input type="submit" name="" value="Login" /><br />
+                    <h6>Gain your knowledge with Relevantz</h6>
+                    {/* <input type="submit" name="" value="Login" /><br /> */}
                 </div>
                 <div class="col-md-9 register-right">
                     <div class="tab-content" id="myTabContent">
@@ -177,14 +177,21 @@ export default function Register() {
 
                                     <div class="form-group">
                                         <div class="maxl">
+                                            <h6 style={{marginTop:"25px"}}>Gender:</h6>
+                                            <div style={{marginLeft:"75px",marginTop:"-43px"}}>
                                             <label class="gender radio inline">
                                                 <input type="radio" name="gender" value="male" checked={gender === "Male"} onChange={handleGenderChange} />
                                                 <span> Male </span>
                                             </label>
                                             <label class="gender radio inline">
                                                 <input type="radio" name="gender" value="female" checked={gender === "Female"} onChange={handleGenderChange} />
-                                                <span>Female </span>
+                                                <span> Female </span>
                                             </label>
+                                            <label class="gender radio inline">
+                                                <input type="radio" name="gender" value="female" checked={gender === "Female"} onChange={handleGenderChange} />
+                                                <span> Others </span>
+                                            </label>
+                                            </div>
                                         </div>
                                         {errors.gender && <div className="text-danger">{errors.gender}</div>}
                                     </div>
@@ -205,6 +212,7 @@ export default function Register() {
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} />
                                     </div>
+                                    <br></br>
                                     <input type="submit" class="btnRegister" value="Register" onClick={handleSubmit} />
                                 </div>
                             </div>
