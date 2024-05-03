@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #27235C;
+}
+.navicons{
+    font-size: 24px;
+    color: aliceblue;
+    /* background-color: #fff; */
+}
+.Searchbar {
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.Searchbar:focus {
+    border-color: #4d90fe; /* Add a blue border when the input field is clicked */
+}
