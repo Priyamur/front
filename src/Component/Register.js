@@ -155,16 +155,26 @@ export default function Register() {
                                         {errors.firstName && <div className="text-danger">{errors.firstName}</div>}
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value={lastName} name="lastName" onChange={(e) => setLastName(e.target.value)} />
-                                        {errors.lastName && <div className="text-danger">{errors.lastName}</div>}
+                                        <input type="number" class="form-control" placeholder="Phone Number *" value={contactNumber} name="phonenumber" onChange={(e) => setContactNumber(e.target.value)} />
+                                        {errors.contactNumber && <div className="text-danger">{errors.contactNumber}</div>}
                                     </div>
+                                    <div class="form-group d-flex">
+                                        <input type="email" class="form-control" placeholder="Your Email *" value={email} onChange={(e) => setEmail(e.target.value)} />
+
+                                        {/* Green tick symbol for verified email */}
+                                        {emailVerified && <span className="text-success">&#10004;</span>}
+                                        {/* Button to send OTP */}
+                                        {!emailVerified && <button className='btn btn-primary' onClick={handleSendOTP}>Send Otp</button>}
+                                    </div>
+                                    {showOTP && (<div class="form-group">
+                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Enter OTP *" value="" />
+                                        {errors.email && <div className="text-danger">{errors.email}</div>}
+                                    </div>)}
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password *" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
                                         {errors.password && <div className="text-danger">{errors.password}</div>}
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} />
-                                    </div>
+
                                     <div class="form-group">
                                         <div class="maxl">
                                             <label class="gender radio inline">
@@ -181,29 +191,20 @@ export default function Register() {
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="number" class="form-control" placeholder="Phone Number *"  value={contactNumber} name="phonenumber" onChange={(e) => setContactNumber(e.target.value)} />
-                                        {errors.contactNumber && <div className="text-danger">{errors.contactNumber}</div>}
+                                        <input type="text" class="form-control" placeholder="Last Name *" value={lastName} name="lastName" onChange={(e) => setLastName(e.target.value)} />
+                                        {errors.lastName && <div className="text-danger">{errors.lastName}</div>}
                                     </div>
+
                                     <div class="form-group">
-                                        <input type="date" class="form-control" placeholder="Date Of Birth *"  value={dob} name="dob" onChange={(e) => setDob(e.target.value)} />
+                                        <input type="date" class="form-control" placeholder="Date Of Birth *" value={dob} name="dob" onChange={(e) => setDob(e.target.value)} />
                                         {errors.dob && <div className="text-danger">{errors.dob}</div>}
                                     </div>
                                     <div class="form-group">
                                         <MultiSelectDropdown />
                                     </div>
-
-                                    <div class="form-group d-flex">
-                                        <input type="email" class="form-control" placeholder="Your Email *"value={email} onChange={(e) => setEmail(e.target.value)} />
-                                        
-                                    {/* Green tick symbol for verified email */}
-                                    {emailVerified && <span className="text-success">&#10004;</span>}
-                                    {/* Button to send OTP */}
-                                        {!emailVerified && <button className='btn btn-primary' onClick={handleSendOTP}>Send Otp</button>}
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} />
                                     </div>
-                                    {showOTP && (<div class="form-group">
-                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Enter OTP *" value="" />
-                                    </div>)}
-                                    {errors.email && <div className="text-danger">{errors.email}</div>}
                                     <input type="submit" class="btnRegister" value="Register" onClick={handleSubmit} />
                                 </div>
                             </div>
