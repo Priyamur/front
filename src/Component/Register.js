@@ -135,16 +135,16 @@ export default function Register() {
 
 
     return (
-        <div class="register">
+        <div style={{height:"100vh"}} class="register">
             <div class="row">
                 <div class="col-md-3 register-left">
                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                     <h3>Welcome to Relevantz </h3>
                     <h4>Learning Management System</h4>
-                    <h6>gain your knowledge with Relevantz</h6>
+                    <h6>Gain your knowledge with Relevantz</h6>
                     <input type="submit" name="" value="Login" /><br />
                 </div>
-                <div class="col-md-9 register-right">
+                <div  class="col-md-9 register-right">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="register-heading">Registration</h3>
@@ -165,16 +165,26 @@ export default function Register() {
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" />
                                     </div>
+                                    <h6 id="gender1">Gender:</h6>  
                                     <div class="form-group">
+                                        
                                         <div class="maxl">
-                                            <label class="gender radio inline">
+                        
+                                       
+                                        <div id="gender">  <label  class="gender radio inline">
+                                            
                                                 <input type="radio" name="gender" value="male" checked={gender === "Male"} onChange={handleGenderChange} />
                                                 <span> Male </span>
                                             </label>
-                                            <label class="gender radio inline">
+                                            <label  class="gender radio inline">
                                                 <input type="radio" name="gender" value="female" checked={gender === "Female"} onChange={handleGenderChange} />
                                                 <span>Female </span>
                                             </label>
+                                            <label  class="gender radio inline">
+                                                <input type="radio" name="gender" value="female" checked={gender === "Others"} onChange={handleGenderChange} />
+                                                <span>Others </span>
+                                            </label>
+                                            </div>
                                         </div>
                                         {errors.gender && <div className="text-danger">{errors.gender}</div>}
                                     </div>
@@ -201,8 +211,9 @@ export default function Register() {
                                     {showOTP && (<div class="form-group">
                                         <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Enter OTP *" value="" />
                                     </div>)}
+                                    <br></br>
 
-                                    <input type="submit" class="btnRegister" value="Register" />
+                                    <input style={{marginRight:"80%"}} type="submit" class="btnRegister" value="Register" />
                                 </div>
                             </div>
 
