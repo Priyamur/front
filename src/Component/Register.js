@@ -32,7 +32,7 @@ export default function Register() {
         setShowOTP(true);
         setErrors('');
     };
-    
+
     const handleOTPChange = (event) => {
         setEnteredOTP(event.target.value);
     };
@@ -141,12 +141,12 @@ export default function Register() {
                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                     <h3>Welcome to Relevantz </h3>
                     <h4>Learning Management System</h4>
-                    <h6>gain your knowledge with Relevantz</h6> 
+                    <h6>gain your knowledge with Relevantz</h6>
                     <input type="submit" name="" value="Login" /><br />
                 </div>
                 <div class="col-md-9 register-right">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="register-heading">Registration</h3>
                             <div class="row register-form">
                                 <div class="col-md-6">
@@ -161,7 +161,6 @@ export default function Register() {
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password *" value={password} name="password" onChange={(e) => setPassword(e.target.value)} />
                                         {errors.password && <div className="text-danger">{errors.password}</div>}
-                                    </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" />
@@ -180,14 +179,14 @@ export default function Register() {
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <input type="number" class="form-control" placeholder="Phone Number *" value="" />
                                     </div>
                                     <div class="form-group">
                                         <input type="date" class="form-control" placeholder="Date Of Birth *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <MultiSelectDropdown/>
+                                        <MultiSelectDropdown />
                                     </div>
 
                                     <div class="form-group d-flex">
@@ -201,12 +200,11 @@ export default function Register() {
                                     <input type="submit" class="btnRegister" value="Register" />
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
