@@ -147,6 +147,7 @@ export default function Registration() {
                 <div className='login'>
                     <form className="login-form" onSubmit={handleSubmit}>
                         <h3 className="sign">Sign Up</h3>
+                        <p style={{ fontSize: 12, color: 'red' }} >{errors}</p>
                         <div className='row'>
                             <div className='col-md-6'>
                                 <div className="mb-3">
@@ -226,12 +227,14 @@ export default function Registration() {
                         <div className='row'>
                             <div className='col-md-6'>
                                 <div className='mb-3'>
-                                    <input type="password" className='pass form-control' placeholder='Enter password' name="password" required/>
+                                    <input type="password" className='pass form-control' placeholder='Enter password' name="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                    {errors.password && <div className="text-danger">{errors.password}</div>}
                                 </div>
                             </div>
                             <div className='col-md-6'>
                                 <div className='mb-3'>
-                                    <input type="password" className='pass form-control' placeholder='Enter confirm password' name="confirmpassword" required/>
+                                    <input type="password" className='pass form-control' placeholder='Enter confirm password' name="confirmpassword" required  value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                                    {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
                                 </div>
                             </div>
 
