@@ -168,14 +168,15 @@ export default function Register() {
                                     <div class="form-group">
                                         <div class="maxl">
                                             <label class="gender radio inline">
-                                                <input type="radio" name="gender" value="male" checked />
+                                                <input type="radio" name="gender" value="male" checked={gender === "Male"} onChange={handleGenderChange} />
                                                 <span> Male </span>
                                             </label>
                                             <label class="gender radio inline">
-                                                <input type="radio" name="gender" value="female" />
+                                                <input type="radio" name="gender" value="female" checked={gender === "Female"} onChange={handleGenderChange} />
                                                 <span>Female </span>
                                             </label>
                                         </div>
+                                        {errors.gender && <div className="text-danger">{errors.gender}</div>}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -190,7 +191,11 @@ export default function Register() {
                                     </div>
 
                                     <div class="form-group d-flex">
-                                        <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                        <input type="email" class="form-control" placeholder="Your Email *"value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        {errors.email && <div className="text-danger">{errors.email}</div>}
+                                    {/* Green tick symbol for verified email */}
+                                    {emailVerified && <span className="text-success">&#10004;</span>}
+                                    {/* Button to send OTP */}
                                         <button className='btn btn-primary' onClick={handleSendOTP}>Send Otp</button>
                                     </div>
                                     {showOTP && (<div class="form-group">
