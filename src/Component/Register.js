@@ -205,7 +205,7 @@ export default function Register() {
                                                 <span> Female </span>
                                             </label>
                                             <label class="gender radio inline">
-                                                <input type="radio" name="gender" value="female" checked={gender === "Female"} onChange={handleGenderChange} />
+                                                <input type="radio" name="gender" value="female" checked={gender === "Others"} onChange={handleGenderChange} />
                                                 <span> Others </span>
                                             </label>
                                             </div>
