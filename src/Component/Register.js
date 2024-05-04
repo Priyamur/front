@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import '../Styles/Register.css';
+import Select from 'react-select';
 import MultiSelectDropdown from './Multivalueddl';
+
+const options = [
+    { value: 'Option1', label: 'Option 1' },
+    { value: 'Option2', label: 'Option 2' },
+    { value: 'Option3', label: 'Option 3' },
+  ];
 
 export default function Register() {
     const [firstName, setFirstName] = useState('');
@@ -15,6 +22,8 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [streams, setStreams] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([]);
+
 
     const [errors, setErrors] = useState({
         firstName: '',
@@ -25,7 +34,8 @@ export default function Register() {
         otp: '',
         contactNumber: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        select: ''
     });
 
     const handleSendOTP = () => {
@@ -63,7 +73,8 @@ export default function Register() {
             otp: '',
             contactNumber: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            select: ''
         };
 
         if (!firstName) {
@@ -117,6 +128,12 @@ export default function Register() {
             newErrors.confirmPassword = 'Passwords do not match';
             isValid = false;
         }
+
+        if (selectedOptions.length === 0) {
+            newErrors.select = 'Please select at least one option';
+            isValid = false;
+          }
+
 
         setErrors(newErrors);
 
@@ -206,11 +223,20 @@ export default function Register() {
                                         <input type="date" class="form-control" placeholder="Date Of Birth *" value={dob} name="dob" onChange={(e) => setDob(e.target.value)} />
                                         {errors.dob && <div className="text-danger">{errors.dob}</div>}
                                     </div>
-                                    <div class="form-group">
-                                        <MultiSelectDropdown />
+                                   <div class="form-group">
+                                        <Select
+                                            isMulti
+                                            name="colors"
+                                            options={options}
+                                            className="basic-multi-select"
+                                            classNamePrefix="select"
+                                            value={selectedOptions}/>
+                                            {errors.select && <div className="text-danger">{errors.select}</div>}
+                                        
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Confirm Password *" value={confirmPassword} name="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} />
+                                         {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
                                     </div>
                                     <br></br>
                                     <input type="submit" class="btnRegister" value="Register" onClick={handleSubmit} />
